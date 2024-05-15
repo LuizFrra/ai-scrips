@@ -1,5 +1,14 @@
 import argparse
 import os
+import subprocess
+import sys
+
+try:
+    import openai
+except ImportError:
+    print("Openai library not found. Installing...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "openai"])
+    import openai
 
 from openai import OpenAI
 
