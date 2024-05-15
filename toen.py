@@ -14,19 +14,6 @@ args = parser.parse_args()
 
 # END SETUP ARGUMENT PARSER
 
-
-# HELP FUNCTIONS
-def file_exists(filepath):
-    return os.path.isfile(filepath)
-
-
-def read_file(filepath):
-    with open(filepath, 'r') as file:
-        return file.read()
-
-
-# END HELP FUNCTIONS
-
 models_mapping = {
     "3t": "gpt-3.5-turbo",
     "4t": "gpt-4-turbo",
