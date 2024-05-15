@@ -5,7 +5,7 @@ from openai import OpenAI
 
 # SETUP ARGUMENT PARSER
 parser = argparse.ArgumentParser(description="Helps you coding a file")
-parser.add_argument("-f", type=str, help="Path of to file where the AI should code")
+parser.add_argument("f", type=str, help="Path of to file where the AI should code")
 parser.add_argument(
     "-m", type=str, help="Model to use to execute the task", default="3t", nargs="?"
 )

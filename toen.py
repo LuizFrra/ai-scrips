@@ -5,9 +5,9 @@ from openai import OpenAI
 
 # SETUP ARGUMENT PARSER
 parser = argparse.ArgumentParser(description="Translate to English")
-parser.add_argument("-p", type=str, help="Phrase which you want to translate", nargs="+")
+parser.add_argument("p", type=str, help="Phrase which you want to translate", nargs="+")
 parser.add_argument(
-    "-m", type=str, help="Model to use to execute the task", default="4o", nargs="?"
+    "-m", type=str, help="Model to use to execute the task", default="3t", nargs="?"
 )
 args = parser.parse_args()
 
