@@ -16,7 +16,7 @@ from openai import OpenAI
 parser = argparse.ArgumentParser(description="Helps you coding a file")
 parser.add_argument("f", type=str, help="Path of to file where the AI should code")
 parser.add_argument(
-    "-m", type=str, help="Model to use to execute the task", default="3t", nargs="?"
+    "-m", type=str, help="Model to use to execute the task", default="4t", nargs="?"
 )
 args = parser.parse_args()
 
@@ -51,17 +51,18 @@ You are a software expert tasked with modifying programming code snippets based 
 
 ### Instructions:
 1. User provides a code snippet.
-2. Check if the code contains the string `{{CODE_%INSTRUCTION%}}`.
+2. Check if the code contains the an instruction between brackets `{{ implemente a code that ... }}`.
 3. If the string is not present, return the code as is.
-4. If the string is present, replace `{{CODE_%INSTRUCTION%}}` with the correct code based on the `%INSTRUCTION%` and the context.
+4. If the string is present, replace `{{ instruction}}` with the correct code based on the given instruction and the context.
 5. Respond with just the modified code, do not include your thoughts or anything else.
+6. You are not responsible to generate comment, but code, your code must be functional and do what the instruction request.
 
 ### Example 1:
 
 **Input:**
 ```python
 def calculate_sum(a, b):
-    return {{CODE_ADD_NUMBERS}}
+    return {{ implement a code that sum a and b}}
 ```
 
 **Output:**
@@ -75,7 +76,7 @@ def calculate_sum(a, b):
 **Input:**
 ```python
 def greet(name):
-    return "Hello, {{CODE_USER_NAME}}!"
+    return "Hello, {{ insert the name users name}}!"
 ```
 
 **Output:**
@@ -89,7 +90,7 @@ def greet(name):
 **Input:**
 ```javascript
 function multiply(a, b) {
-    return {{CODE_MULTIPLY_NUMBERS}};
+    return {{ multiply de value a and b }};
 }
 ```
 
@@ -105,13 +106,7 @@ function multiply(a, b) {
 **Input:**
 ```java
 public int findMax(int[] nums) {
-    int max = {{CODE_INITIALIZE_MAX}};
-    for (int num : nums) {
-        if (num > max) {
-            max = num;
-        }
-    }
-    return max;
+    {{ implement the logic to find the biggest number in array nums }}
 }
 ```
 
